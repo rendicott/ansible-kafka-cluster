@@ -7,15 +7,16 @@ kafka:
 # This does not have to be every Zookeeper host, but the more the better
 #  by default, we assume this is run at the same time as Zookeeper provisioning
 zk_hosts: "{{ groups['zk'] }}" # This does not have to be every Zookeeper host
-zk_client_port: "{{ vagrant_zk_client_port }}"# Should be set properly if not using Vagrant
-kafka_cluster_info: "{{ vagrant_kafka_cluster_info }}"
-# If not using Vagrant,
-# Should be a list of node hostnames to node info
-# Example:
-# kafka_cluster_info:
-#   kafka-node-1:
-#     broker_id: 1
-#   kafka-node-2:
-#     broker_id: 2
-#   kafka-node-3:
-#     broker_id: 3
+zk_client_port: 2181 # Should be set properly if not using Vagrant
+kafka_cluster_info:
+  APkafka01.docl.nic:
+    broker_id: 1
+  APkafka02.docl.nic::
+    broker_id: 2
+  APkafka03.docl.nic::
+    broker_id: 3
+  APkafka04.docl.nic::
+    broker_id: 4
+  APkafka05.docl.nic::
+    broker_id: 5
+
