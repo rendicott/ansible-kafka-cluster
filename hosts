@@ -1,0 +1,7 @@
+[zk]
+APkafka01 zk_id=1 broker_id=1
+APkafka02 zk_id=2 broker_id=2
+APkafka03 zk_id=3 broker_id=3
+APkafka04 zk_id=4 broker_id=4
+APkafka05 zk_id=5 broker_id=5
+

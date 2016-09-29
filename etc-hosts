@@ -1,0 +1,7 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.119.125.47  apkafka01 APkafka01
+10.119.125.95  apkafka02 APkafka02
+10.119.125.75  apkafka03 APkafka03
+10.119.125.56  apkafka04 APkafka04
+10.119.125.165 apkafka05 APkafka05
