@@ -1,5 +1,5 @@
 zk:
-  version: 3.4.6
+  version: 3.4.8
   mirror: http://ftp.meisei-u.ac.jp/mirror/apache/dist
   data_dir: /var/lib/zookeeper
   install_dir: "/etc"
