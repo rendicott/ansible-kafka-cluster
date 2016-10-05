@@ -1,5 +1,5 @@
 kafka:
-  version: 0.8.2.1
+  version: 0.10.0.0
   scala_version: 2.11
   mirror: http://ftp.meisei-u.ac.jp/mirror/apache/dist
   data_dir: /var/lib/kafka
