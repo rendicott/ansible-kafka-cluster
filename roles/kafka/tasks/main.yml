@@ -1,3 +1,8 @@
+---
+- name: include uninstall when upgrade flag
+  include: uninstall.yml
+  when: upgrade
+
 - name: disable firewalld
   service: name=firewalld state=stopped enabled=no
   ignore_errors: True  #when firewalld is stopped
@@ -47,6 +52,9 @@
   command: tar xzf /tmp/{{ kafka_name }}.tgz chdir="{{ kafka.install_dir }}"
   tags: kafka
 
+- name: ensure kafka dir is owned by kafka user
+  file: path="{{ kafka_dir }}" state=directory owner=kafka group=kafka recurse=yes
+
 # Config and start Kafka
 - name: Ensures data dir {{ kafka.data_dir }} exists
   file:
@@ -72,3 +80,4 @@
     mode: 644
   notify: start kafka
   tags: kafka
+...

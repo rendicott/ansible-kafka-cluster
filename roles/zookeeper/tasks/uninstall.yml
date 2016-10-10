@@ -1,0 +1,17 @@
+---
+- name: Setting internal variable
+  set_fact:
+    zk_name: zookeeper-{{ zk.version }}
+  tags: zookeeper
+
+- name: Zookeeper | Setting internal variable
+  set_fact:
+    zk_dir: "{{ zk.install_dir }}/{{ zk_name }}"
+  tags: zookeeper
+
+- name: make sure zk_dir is empty
+  file: path="{{ zk_dir }}" state=absent
+
+- name: delete service launcher
+  file: path=/etc/systemd/system/zookeeper.service state=absent
+...

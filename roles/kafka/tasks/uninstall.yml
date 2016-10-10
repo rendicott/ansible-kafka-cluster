@@ -1,0 +1,18 @@
+---
+- name: Setting internal variable
+  set_fact:
+    kafka_name: kafka_{{ kafka.scala_version }}-{{ kafka.version }}
+  tags: kafka
+
+- name: Setting internal variable
+  set_fact:
+    kafka_dir: "{{ kafka.install_dir }}/{{ kafka_name }}"
+  tags: kafka
+
+- name: make sure install_dir is empty
+  file: path="{{ kafka_dir }}" state=absent
+
+- name: delete service launcher
+  file: path=/etc/systemd/system/kafka.service state=absent
+...
+

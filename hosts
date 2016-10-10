@@ -1,7 +1,14 @@
 [zk]
-APkafka01 zk_id=1 broker_id=1
-APkafka02 zk_id=2 broker_id=2
-APkafka03 zk_id=3 broker_id=3
-APkafka04 zk_id=4 broker_id=4
-APkafka05 zk_id=5 broker_id=5
+AP-BORNGE01 zk_id=1
+AP-BORNGE02 zk_id=2
+AP-BORNGE03 zk_id=3
+AP-BORNGE04 zk_id=4
+AP-BORNGE05 zk_id=5
+
+[kafka]
+AP-BORNGE01 broker_id=22
+AP-BORNGE02 broker_id=23
+AP-BORNGE03 broker_id=24
+AP-BORNGE04 broker_id=25
+AP-BORNGE05 broker_id=26
 
