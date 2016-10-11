@@ -91,3 +91,9 @@
     mode: 644
   notify: start zookeeper
   tags: zookeeper
+
+- name: ensure zookeeper service starts on boot
+  service: name=zookeeper state=started enabled=yes
+
+
+...
