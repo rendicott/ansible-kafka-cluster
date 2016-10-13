@@ -9,3 +9,13 @@
 - hosts: kafka
   roles:
     - kafka
+
+- hosts: kafka
+  vars:
+    - svc_audpub_pass: '$6$rounds=656000$7.kRtM.xIfQzcr8S$sJcgOwuEtp./CJNkao11w7MFlRaOdNeujUn0BLd5u9hryuZQ9s83MEOc/o8OoiGimIAg9hsaX5ME8eIyF6OcW0'
+  tasks:
+    - name: verify svc_audpub user exists
+      user: name=svc_audpub shell=/bin/bash group=kafka createhome=yes password={{ svc_audpub_pass }}
+
+
+
