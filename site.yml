@@ -16,6 +16,8 @@
   tasks:
     - name: verify svc_audpub user exists
       user: name=svc_audpub shell=/bin/bash group=kafka createhome=yes password={{ svc_audpub_pass }}
+    - name: set symlink
+      file: src=/opt/kafka_2.11-0.10.0.0 dest=/opt/kafka_2.10-0.10.0.0 state=link
 
 
 
