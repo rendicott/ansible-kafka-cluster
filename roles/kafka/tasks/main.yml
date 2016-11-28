@@ -81,6 +81,27 @@
   notify: start kafka
   tags: kafka
 
+- name: make sure file limits is in security limits.conf
+  lineinfile: dest=/etc/security/limits.conf state=present create=yes line="{{ item }} - nofile {{ file_max }}"
+  with_items:
+    - "*"
+    - root
+    - kafka
+
+- name: verify fs.file-max is set to "{{ file_max }}"
+  sysctl:
+    name: fs.file-max
+    value: "{{ file_max }}"
+    state: present
+    reload: yes
+
+- name: replace small heap
+  replace:
+    dest: "/opt/{{ kafka_version }}/bin/kafka-server-start.sh"
+    regexp: 'Xm.1G \-Xm.1G'
+    replace: "Xmx{{ heap_size_gb }}G -Xms{{ heap_size_gb }}G"
+
+
 - name: ensure kafka service starts on boot
   service: name=kafka state=started enabled=yes
 
