@@ -4,6 +4,7 @@ Before=
 After=network.target
 
 [Service]
+LimitNOFILE={{ system_file_limit }} 
 User=kafka
 Environment=JAVA_HOME=/usr/local/java8
 CHDIR= {{ kafka.data_dir }}

@@ -9,3 +9,4 @@ kafka:
 #  by default, we assume this is run at the same time as Zookeeper provisioning
 zk_hosts: "{{ groups['zk'] }}" # This does not have to be every Zookeeper host
 zk_client_port: 2181 # Should be set properly if not using Vagrant
+system_file_limit: 40960
