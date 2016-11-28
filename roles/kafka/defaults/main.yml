@@ -12,6 +12,7 @@ zk_client_port: 2181 # Should be set properly if not using Vagrant
 system_file_limit: 40960
 file_max: 100000
 heap_size_gb: 10
+jmx_port: 9099
 kafka_version: "kafka_{{ scala_version }}-{{ version }}"
 # e.g., 
 #kafka_version: kafka_2.11-0.10.0.0
