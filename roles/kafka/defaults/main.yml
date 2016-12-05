@@ -16,3 +16,4 @@ jmx_port: 9099
 kafka_version: "kafka_{{ scala_version }}-{{ version }}"
 # e.g., 
 #kafka_version: kafka_2.11-0.10.0.0
+swappiness: 0

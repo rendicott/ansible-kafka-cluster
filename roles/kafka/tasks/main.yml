@@ -88,6 +88,14 @@
     - root
     - kafka
 
+- name: verify swappiness is set to "{{ swappiness }}"
+  sysctl:
+    name: vm.swappiness
+    value: "{{ swappiness }}"
+    state: present
+    reload: no
+  ignore_errors: yes
+
 - name: verify fs.file-max is set to "{{ file_max }}"
   sysctl:
     name: fs.file-max
@@ -100,6 +108,7 @@
     dest: "/opt/{{ kafka_version }}/bin/kafka-server-start.sh"
     regexp: 'Xm.1G \-Xm.1G'
     replace: "Xmx{{ heap_size_gb }}G -Xms{{ heap_size_gb }}G"
+
 
 
 - name: ensure kafka service starts on boot
