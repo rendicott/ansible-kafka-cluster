@@ -24,7 +24,7 @@ delete.topic.enable=true
 ############################# Socket Server Settings #############################
 
 # The port the socket server listens on
-port=9092
+port={{ kafka.port }}
 
 # Hostname the broker will bind to. If not set, the server will bind to all interfaces
 #host.name=localhost
@@ -32,7 +32,7 @@ port=9092
 # Hostname the broker will advertise to producers and consumers. If not set, it uses the
 # value for "host.name" if configured.  Otherwise, it will use the value returned from
 # java.net.InetAddress.getCanonicalHostName().
-advertised.host.name={{ hostvars[host].ansible_nodename }}
+advertised.listeners=PLAINTEXT://{{ inventory_hostname }}:{{ kafka.port }}
 
 # The port to publish to ZooKeeper for clients to use. If this is not set,
 # it will publish the same port that the broker binds to.
@@ -57,7 +57,7 @@ socket.request.max.bytes=104857600
 ############################# Log Basics #############################
 
 # A comma seperated list of directories under which to store log files
-log.dirs={{ kafka.data_dir }}
+log.dirs={{ kafka_data_dir }}
 
 # The default number of log partitions per topic. More partitions allow greater
 # parallelism for consumption, but this will also result in more files across
