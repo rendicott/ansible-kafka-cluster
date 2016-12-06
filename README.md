@@ -28,7 +28,7 @@ For other systems, checkout the installation pages of [Vagrant](https://docs.vag
 ### 2. Clone this repo
 
 ```
-git clone git@github.com:lloydmeta/ansible-kafka-cluster.git
+git clone git@github.com:rendicott/ansible-kafka-cluster.git
 cd ansible-kafka-cluster
 ```
 
@@ -102,3 +102,7 @@ Feel free to send and consume messages while the node is down. Note though, that
 
 ### 8. Bring the Kafka node back up, put it to sleep, etc.
 
+## Usage
+```
+ansible-playbook site.yml -i ./hosts-test -e heap_size_gb=6 --extra-vars='{"kafka_data_dirs": ["/data/kafka","/data2/kafka"], "kafka_data_dir": "/data/kafka,/data2/kafka"}'
+```

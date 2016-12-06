@@ -56,12 +56,14 @@
   file: path="{{ kafka_dir }}" state=directory owner=kafka group=kafka recurse=yes
 
 # Config and start Kafka
-- name: Ensures data dir {{ kafka_data_dir }} exists
+- name: Ensures data dir exists
   file:
-    path: "{{ kafka_data_dir }}"
+    path: "{{ item }}"
     state: directory
     owner: kafka
     group: kafka
+  with_items:
+    - "{{ kafka_data_dirs }}"
   tags: kafka
 
 - name: Copy real config
