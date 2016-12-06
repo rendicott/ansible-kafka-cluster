@@ -1,0 +1,10 @@
+[zk]
+DOKAF1 zk_id=1
+DOKAF2 zk_id=2
+DOKAF3 zk_id=3
+
+[kafka]
+DOKAF1 broker_id=21
+DOKAF2 broker_id=22
+DOKAF3 broker_id=23
+
